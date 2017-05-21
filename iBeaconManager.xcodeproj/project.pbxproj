@@ -14,6 +14,10 @@
 		26BEAE821ED18EB100661FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BEAE801ED18EB100661FD9 /* LaunchScreen.storyboard */; };
 		26BEAE8D1ED18EB100661FD9 /* iBeaconManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAE8C1ED18EB100661FD9 /* iBeaconManagerTests.swift */; };
 		26BEAE981ED18EB100661FD9 /* iBeaconManagerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAE971ED18EB100661FD9 /* iBeaconManagerUITests.swift */; };
+		26BEAEA61ED1BABD00661FD9 /* BeaconsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEA51ED1BABD00661FD9 /* BeaconsController.swift */; };
+		26BEAEA81ED1BB6200661FD9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */; };
+		26BEAEAA1ED1BBC000661FD9 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */; };
+		26BEAEAC1ED1BC6400661FD9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		26BEAE931ED18EB100661FD9 /* iBeaconManagerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iBeaconManagerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BEAE971ED18EB100661FD9 /* iBeaconManagerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iBeaconManagerUITests.swift; sourceTree = "<group>"; };
 		26BEAE991ED18EB100661FD9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26BEAEA51ED1BABD00661FD9 /* BeaconsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconsController.swift; sourceTree = "<group>"; };
+		26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
+		26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +105,10 @@
 		26BEAE761ED18EB100661FD9 /* iBeaconManager */ = {
 			isa = PBXGroup;
 			children = (
+				26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */,
+				26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */,
+				26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */,
+				26BEAEA51ED1BABD00661FD9 /* BeaconsController.swift */,
 				26BEAE771ED18EB100661FD9 /* AppDelegate.swift */,
 				26BEAE791ED18EB100661FD9 /* ViewController.swift */,
 				26BEAE7B1ED18EB100661FD9 /* Main.storyboard */,
@@ -263,7 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				26BEAE7A1ED18EB100661FD9 /* ViewController.swift in Sources */,
+				26BEAEAC1ED1BC6400661FD9 /* Extensions.swift in Sources */,
+				26BEAEA61ED1BABD00661FD9 /* BeaconsController.swift in Sources */,
+				26BEAEA81ED1BB6200661FD9 /* CustomCell.swift in Sources */,
 				26BEAE781ED18EB100661FD9 /* AppDelegate.swift in Sources */,
+				26BEAEAA1ED1BBC000661FD9 /* CustomHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,6 +530,7 @@
 				26BEAE9E1ED18EB100661FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26BEAE9F1ED18EB100661FD9 /* Build configuration list for PBXNativeTarget "iBeaconManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -522,6 +539,7 @@
 				26BEAEA11ED18EB100661FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26BEAEA21ED18EB100661FD9 /* Build configuration list for PBXNativeTarget "iBeaconManagerUITests" */ = {
 			isa = XCConfigurationList;
@@ -530,6 +548,7 @@
 				26BEAEA41ED18EB100661FD9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
