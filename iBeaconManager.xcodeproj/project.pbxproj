@@ -18,6 +18,8 @@
 		26BEAEA81ED1BB6200661FD9 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */; };
 		26BEAEAA1ED1BBC000661FD9 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */; };
 		26BEAEAC1ED1BC6400661FD9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */; };
+		26BEAEB11ED1D62E00661FD9 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEB01ED1D62E00661FD9 /* Beacon.swift */; };
+		26CB3A951ED1E5B9002067AA /* AddBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB3A941ED1E5B9002067AA /* AddBeacon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		26BEAEB01ED1D62E00661FD9 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
+		26CB3A941ED1E5B9002067AA /* AddBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeacon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,10 +109,10 @@
 		26BEAE761ED18EB100661FD9 /* iBeaconManager */ = {
 			isa = PBXGroup;
 			children = (
+				26CB3A941ED1E5B9002067AA /* AddBeacon.swift */,
+				26BEAEB01ED1D62E00661FD9 /* Beacon.swift */,
 				26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */,
-				26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */,
-				26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */,
-				26BEAEA51ED1BABD00661FD9 /* BeaconsController.swift */,
+				26BEAEAD1ED1BD1F00661FD9 /* TableView */,
 				26BEAE771ED18EB100661FD9 /* AppDelegate.swift */,
 				26BEAE791ED18EB100661FD9 /* ViewController.swift */,
 				26BEAE7B1ED18EB100661FD9 /* Main.storyboard */,
@@ -135,6 +139,16 @@
 				26BEAE991ED18EB100661FD9 /* Info.plist */,
 			);
 			path = iBeaconManagerUITests;
+			sourceTree = "<group>";
+		};
+		26BEAEAD1ED1BD1F00661FD9 /* TableView */ = {
+			isa = PBXGroup;
+			children = (
+				26BEAEA51ED1BABD00661FD9 /* BeaconsController.swift */,
+				26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */,
+				26BEAEA71ED1BB6200661FD9 /* CustomCell.swift */,
+			);
+			name = TableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,11 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				26BEAE7A1ED18EB100661FD9 /* ViewController.swift in Sources */,
+				26CB3A951ED1E5B9002067AA /* AddBeacon.swift in Sources */,
 				26BEAEAC1ED1BC6400661FD9 /* Extensions.swift in Sources */,
 				26BEAEA61ED1BABD00661FD9 /* BeaconsController.swift in Sources */,
 				26BEAEA81ED1BB6200661FD9 /* CustomCell.swift in Sources */,
 				26BEAE781ED18EB100661FD9 /* AppDelegate.swift in Sources */,
 				26BEAEAA1ED1BBC000661FD9 /* CustomHeader.swift in Sources */,
+				26BEAEB11ED1D62E00661FD9 /* Beacon.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
