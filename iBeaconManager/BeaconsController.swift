@@ -18,7 +18,8 @@ class BeaconController : UITableViewController {
     //Beacon Manager
     let locationManager = CLLocationManager()
     
-
+    
+    //MARK: iOS Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -45,9 +46,10 @@ class BeaconController : UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    //MARK: Helper Methods
     func insert(){
-        addBeacon()
+       // addBeacon()
+        addBeaconWithUIAlertController()
     }
     
     func insertBatch(){
@@ -136,18 +138,71 @@ class BeaconController : UITableViewController {
         refreshTableView(beacon: newItem)
     }
     
+    func addBeacon(name:String, icon:Int , uuid:UUID , majorValue: Int , minorValue: Int){
     
-    func refreshTableView(beacon:Beacon){
-
-        tableView.beginUpdates()
-        let newIndexPath = IndexPath(row: beaconsArray.count - 1, section: 0)
-        tableView.insertRows(at: [newIndexPath], with: .automatic)
-        tableView.endUpdates()
-        
-         startMonitoringItem(beacon)
-        persistItems()
-
+    
+    
+    
+    
+    
+    
+    
     }
+
+    
+    func addBeaconWithUIAlertController(){
+        
+        let alert = UIAlertController(title: "Add Beacon", message: nil, preferredStyle: .alert)
+        
+        //Beacon Name Textfield
+        alert.addTextField {
+            $0.placeholder = " Beacon Name"
+        }
+        
+        alert.addTextField {
+            $0.placeholder = " UUID"
+
+        
+        }
+        
+        alert.addTextField {
+            $0.placeholder = " Major"
+            
+        }
+        
+        alert.addTextField {
+            $0.placeholder = " Minor"
+            $0.addTarget(alert, action: #selector(alert.textDidChangeInAddBeaconAlert), for: .editingChanged)
+        }
+        
+        
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        let addBeaconAlert = UIAlertAction(title: "Add", style: .default ) { [unowned self] _ in
+        
+            guard let beaconName = alert.textFields?[0].text,
+                    let uuid = alert.textFields?[1].text,
+                    let major = alert.textFields?[2].text,
+                    let minor = alert.textFields?[3].text
+                else {
+                        print("Beacon Validation Faild")
+                    return
+            }
+            
+            //add beeacon to Database array
+            print("Alert data:",beaconName , uuid,major,minor)
+            
+           let newItem = Beacon(name: beaconName, icon: 0, uuid: UUID(uuidString: uuid)!, majorValue: Int(major)!, minorValue:  Int(minor)!)
+                self.beaconsArray.append(newItem)
+                self.refreshTableView(beacon: newItem)
+        }
+        
+        addBeaconAlert.isEnabled = false
+        alert.addAction(addBeaconAlert)
+        present(alert, animated: true, completion: nil)
+        
+    }
+    
     
     
     //MARK:Data Persistance
@@ -184,9 +239,8 @@ extension BeaconController  {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell =  tableView.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! CustomCell
-        cell.beaconLabel.text = beaconsArray[indexPath.row].name
-        cell.proximityLabel.text = beaconsArray[indexPath.row].locationString()
-        cell.customTableViewContrller = self
+        //  cell.customTableViewContrller = self
+            cell.beacon = beaconsArray[indexPath.row]
           
         return cell
     }
@@ -245,7 +299,6 @@ extension BeaconController  {
 //MARK: CLLocationManager Delegate - Listening for Your iBeacon
 extension BeaconController: CLLocationManagerDelegate {
     
-    
     func startMonitoringItem(_ beacon: Beacon) {
         print("startMonitoringItem")
         let beaconRegion = beacon.asBeaconRegion()
@@ -260,7 +313,6 @@ extension BeaconController: CLLocationManagerDelegate {
         locationManager.stopRangingBeacons(in: beaconRegion)
     }
 
-    
     func locationManager(_ manager: CLLocationManager, monitoringDidFailFor region: CLRegion?, withError error: Error) {
         print("Failed monitoring region: \(error.localizedDescription)")
     }
@@ -271,8 +323,8 @@ extension BeaconController: CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         
-        
-        print(beacons.description)
+        //Apple CLLocation beacon description
+       // print(beacons.description)
         
         // Find the same beacons in the table.
         var indexPaths = [IndexPath]()
@@ -296,6 +348,19 @@ extension BeaconController: CLLocationManagerDelegate {
         }
         
     }
+    
+    func refreshTableView(beacon:Beacon){
+        
+        tableView.beginUpdates()
+        let newIndexPath = IndexPath(row: beaconsArray.count - 1, section: 0)
+        tableView.insertRows(at: [newIndexPath], with: .automatic)
+        tableView.endUpdates()
+        
+        startMonitoringItem(beacon)
+        persistItems()
+        
+    }
+
 
 }
 

@@ -91,18 +91,16 @@ class CustomCell: UITableViewCell {
         addConstraintsWithFormat("H:|-16-[v0]|",views: beaconLabel)
         addConstraintsWithFormat("V:|[v0]|",views: beaconLabel)
         
-        addConstraintsWithFormat("H:|-220-[v0]|",views: proximityLabel)
+        addConstraintsWithFormat("H:|-150-[v0]|",views: proximityLabel)
         addConstraintsWithFormat("V:|[v0]|",views: proximityLabel)
         
         
-        //cell button
+//cell button
         
-        addSubview(actionButton)
-        addConstraintsWithFormat("H:|-300-[v0]-8-|",views: actionButton)
-        addConstraintsWithFormat("V:|[v0]|",views: actionButton)
-        
-        
-        actionButton.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
+//        addSubview(actionButton)
+//        addConstraintsWithFormat("H:|-300-[v0]-8-|",views: actionButton)
+//        addConstraintsWithFormat("V:|[v0]|",views: actionButton)
+//        actionButton.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         
         
     }
