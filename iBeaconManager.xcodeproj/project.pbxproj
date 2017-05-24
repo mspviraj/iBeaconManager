@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		26BEAE781ED18EB100661FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAE771ED18EB100661FD9 /* AppDelegate.swift */; };
-		26BEAE7A1ED18EB100661FD9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAE791ED18EB100661FD9 /* ViewController.swift */; };
 		26BEAE7D1ED18EB100661FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BEAE7B1ED18EB100661FD9 /* Main.storyboard */; };
 		26BEAE7F1ED18EB100661FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BEAE7E1ED18EB100661FD9 /* Assets.xcassets */; };
 		26BEAE821ED18EB100661FD9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BEAE801ED18EB100661FD9 /* LaunchScreen.storyboard */; };
@@ -19,7 +18,6 @@
 		26BEAEAA1ED1BBC000661FD9 /* CustomHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */; };
 		26BEAEAC1ED1BC6400661FD9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */; };
 		26BEAEB11ED1D62E00661FD9 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAEB01ED1D62E00661FD9 /* Beacon.swift */; };
-		26CB3A951ED1E5B9002067AA /* AddBeacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CB3A941ED1E5B9002067AA /* AddBeacon.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,7 +40,6 @@
 /* Begin PBXFileReference section */
 		26BEAE741ED18EB100661FD9 /* iBeaconManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeaconManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BEAE771ED18EB100661FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		26BEAE791ED18EB100661FD9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		26BEAE7C1ED18EB100661FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		26BEAE7E1ED18EB100661FD9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		26BEAE811ED18EB100661FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,7 +55,6 @@
 		26BEAEA91ED1BBC000661FD9 /* CustomHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomHeader.swift; sourceTree = "<group>"; };
 		26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		26BEAEB01ED1D62E00661FD9 /* Beacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
-		26CB3A941ED1E5B9002067AA /* AddBeacon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddBeacon.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,12 +105,10 @@
 		26BEAE761ED18EB100661FD9 /* iBeaconManager */ = {
 			isa = PBXGroup;
 			children = (
-				26CB3A941ED1E5B9002067AA /* AddBeacon.swift */,
 				26BEAEB01ED1D62E00661FD9 /* Beacon.swift */,
 				26BEAEAB1ED1BC6400661FD9 /* Extensions.swift */,
 				26BEAEAD1ED1BD1F00661FD9 /* TableView */,
 				26BEAE771ED18EB100661FD9 /* AppDelegate.swift */,
-				26BEAE791ED18EB100661FD9 /* ViewController.swift */,
 				26BEAE7B1ED18EB100661FD9 /* Main.storyboard */,
 				26BEAE7E1ED18EB100661FD9 /* Assets.xcassets */,
 				26BEAE801ED18EB100661FD9 /* LaunchScreen.storyboard */,
@@ -288,8 +282,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				26BEAE7A1ED18EB100661FD9 /* ViewController.swift in Sources */,
-				26CB3A951ED1E5B9002067AA /* AddBeacon.swift in Sources */,
 				26BEAEAC1ED1BC6400661FD9 /* Extensions.swift in Sources */,
 				26BEAEA61ED1BABD00661FD9 /* BeaconsController.swift in Sources */,
 				26BEAEA81ED1BB6200661FD9 /* CustomCell.swift in Sources */,

@@ -6,6 +6,7 @@
 //  Copyright © 2017 YoelL. All rights reserved.
 //
 
+
 import UIKit
 import CoreLocation
 
@@ -48,78 +49,15 @@ class BeaconController : UITableViewController {
     
     //MARK: Helper Methods
     func insert(){
-       // addBeacon()
         addBeaconWithUIAlertController()
     }
     
     func insertBatch(){
         
-//        var indexPaths = [NSIndexPath]()
-//        
-//        for i in items.count...items.count + 10 {
-//            items.append("Item \(items.count + 1)")
-//            indexPaths.append(NSIndexPath(row: i, section: 0))
-//        }
-//        
-//        var bottomHalfIndexPaths = [NSIndexPath]()
-//        for _ in 0...indexPaths.count / 2 - 1 {
-//            bottomHalfIndexPaths.append(indexPaths.removeLast())
-//        }
-//        
-//        tableView.beginUpdates()
-//        
-//        tableView.insertRows(at: indexPaths as [IndexPath], with: .right)
-//        tableView.insertRows(at: bottomHalfIndexPaths as [IndexPath], with: .left)
-//        
-//        tableView.endUpdates()
         
     }
     
-    func addBeaconData( ){
-        
-        let alertController = UIAlertController(title: "Add Beacon", message: "", preferredStyle: .alert)
-        
-        let saveAction = UIAlertAction(title: "Save", style: .default, handler: {
-            alert -> Void in
-            
-            //            let firstTextField = alertController.textFields![0] as UITextField
-            //            let secondTextField = alertController.textFields![1] as UITextField
-            
-            
-            //  saveBeaconData()
-            
-            
-        })
-        
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
-            (action : UIAlertAction!) -> Void in
-            
-        })
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = " Beacon Name"
-        }
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = " UUID"
-        }
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = " Major"
-        }
-        
-        alertController.addTextField { (textField : UITextField!) -> Void in
-            textField.placeholder = " Minor"
-        }
-        
-        alertController.addAction(saveAction)
-        alertController.addAction(cancelAction)
-        
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
-    func addBeacon(){
+    func addDemoBeacon(){
     
         var uuidString = "B9407F30-F5F8-466E-AFF9-25556B57FE6D"
         uuidString = uuidString.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
@@ -138,18 +76,6 @@ class BeaconController : UITableViewController {
         refreshTableView(beacon: newItem)
     }
     
-    func addBeacon(name:String, icon:Int , uuid:UUID , majorValue: Int , minorValue: Int){
-    
-    
-    
-    
-    
-    
-    
-    
-    }
-
-    
     func addBeaconWithUIAlertController(){
         
         let alert = UIAlertController(title: "Add Beacon", message: nil, preferredStyle: .alert)
@@ -161,13 +87,10 @@ class BeaconController : UITableViewController {
         
         alert.addTextField {
             $0.placeholder = " UUID"
-
-        
-        }
+                     }
         
         alert.addTextField {
             $0.placeholder = " Major"
-            
         }
         
         alert.addTextField {
@@ -177,7 +100,7 @@ class BeaconController : UITableViewController {
         
         
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
+
         let addBeaconAlert = UIAlertAction(title: "Add", style: .default ) { [unowned self] _ in
         
             guard let beaconName = alert.textFields?[0].text,
@@ -185,12 +108,11 @@ class BeaconController : UITableViewController {
                     let major = alert.textFields?[2].text,
                     let minor = alert.textFields?[3].text
                 else {
-                        print("Beacon Validation Faild")
-                    return
+                    
+                    print("Beacon Validation Faild")
+                return
             }
             
-            //add beeacon to Database array
-            print("Alert data:",beaconName , uuid,major,minor)
             
            let newItem = Beacon(name: beaconName, icon: 0, uuid: UUID(uuidString: uuid)!, majorValue: Int(major)!, minorValue:  Int(minor)!)
                 self.beaconsArray.append(newItem)
@@ -204,9 +126,14 @@ class BeaconController : UITableViewController {
     }
     
     
-    
-    //MARK:Data Persistance
-    
+}
+
+
+//MARK:Data Persistance
+
+extension BeaconController {
+
+
     func loadItems() {
         guard let storedItems = UserDefaults.standard.array(forKey: storedItemsKey) as? [Data] else { return }
         for beaconData in storedItems {
@@ -228,6 +155,8 @@ class BeaconController : UITableViewController {
     }
     
 }
+
+
 
 //MARK: TableView
 extension BeaconController  {
@@ -280,7 +209,6 @@ extension BeaconController  {
         return true
     }
     
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
@@ -289,6 +217,10 @@ extension BeaconController  {
         let detailAlert = UIAlertController(title: "Details", message: detailMessage, preferredStyle: .alert)
         detailAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(detailAlert, animated: true, completion: nil)
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return 80.0;//Choose your custom row height
     }
     
     

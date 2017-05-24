@@ -8,6 +8,8 @@
 
 import UIKit
 
+//MARK: UIView Extension
+
 extension UIView {
     
     func addConstraintsWithFormat(_ format: String, views: UIView...) {
@@ -70,6 +72,7 @@ extension UIView {
     
 }
 
+//MARK: Int Extension
 
 extension Int {
 
@@ -88,14 +91,19 @@ extension Int {
         }
     }
 
-
 }
 
+//MARK: UIAlertController Extension
 
 extension UIAlertController {
     
     func isValidEmail(_ email: String) -> Bool {
-        return email.characters.count > 0 && NSPredicate(format: "self matches %@", "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,64}").evaluate(with: email)
+        
+        let emailValid = email.characters.count > 0 && NSPredicate(format: "self matches %@", "[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,64}").evaluate(with: email)
+        
+            colorValidator(validParam: emailValid, forField: 0)
+        
+        return emailValid
     }
     
     func isValidPassword(_ password: String) -> Bool {
@@ -105,6 +113,8 @@ extension UIAlertController {
     func isValidName(_ name:String)->Bool{
         
         let nameValid = (name.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines).characters.count > 0)
+
+            colorValidator(validParam: nameValid, forField: 0)
         
         return nameValid
     }
@@ -119,19 +129,39 @@ extension UIAlertController {
         if uuidString.characters.count > 0 {
             uuidValid = (uuidRegex.numberOfMatches(in: uuidString, options: [], range: NSMakeRange(0, uuidString.characters.count)) > 0)
         }
-    
+        
+        
+        colorValidator(validParam: uuidValid, forField: 1)
+        
+        
         return uuidValid
     }
     
-    func isValidMajorMinor(_ major:Int,minor:Int )->Bool {
+    func isValidMajor(_ major:Int)->Bool {
         
-        if ((major.digitCount == 5 ) && ( minor.digitCount == 5 ) ){
+        if (major.digitCount == 5 ){
+            
+            colorValidator(validParam: true, forField: 2)
             return true
         }
+        
+            colorValidator(validParam: false, forField: 2)
+        
         return false
     }
     
-    
+    func isValidMinor(_ minor:Int )->Bool {
+        
+        if  ( minor.digitCount == 5 ){
+            
+            colorValidator(validParam: true, forField: 3)
+            return true
+        }
+        
+        colorValidator(validParam: false, forField: 3)
+        return false
+    }
+
     func textDidChangeInLoginAlert() {
         if let email = textFields?[0].text,
             let password = textFields?[1].text,
@@ -146,13 +176,47 @@ extension UIAlertController {
             let uuid = textFields?[1].text,
             let major = textFields?[2].text,
             let minor = textFields?[3].text,
-            let action = actions.last {  action.isEnabled = isValidName(beaconName) && isValidUUID(uuid) && isValidMajorMinor(Int(major)!, minor: Int(minor)!)
-            
-            
-            }
+            let action = actions.last {
+        
+            guard isValidName(beaconName) && isValidUUID(uuid) && isValidMajor(Int(major)!) && isValidMinor(Int(minor)!) else {
+                
+                if isValidName(beaconName) == false {
+                    textFields?[0].text = "Beacon Must Have a Name"
+                    textFields?[0].textColor = UIColor.red
+                    }
+                
+                if isValidUUID(uuid) == false {
+                    textFields?[1].textColor = UIColor.red
+                    }
+                
+                if isValidMajor(Int(major)!) == false {
+                    textFields?[2].textColor = UIColor.red
+                    }
+                
+                if isValidMinor(Int(minor)!) == false {
+                    textFields?[3].textColor = UIColor.red
+                    }
 
+                return
+                }
+            
+            
+            action.isEnabled = isValidName(beaconName) && isValidUUID(uuid) && isValidMajor(Int(major)!) && isValidMinor(Int(minor)!)
+        
+        
+            }
         }
     
-    
+    func colorValidator(validParam:Bool,forField:Int) {
+        
+        if validParam {
+            textFields?[forField].textColor = UIColor.blue
+        }else{
+            
+            textFields?[forField].textColor = UIColor.red
+        }
+
+    }
+
 }
 

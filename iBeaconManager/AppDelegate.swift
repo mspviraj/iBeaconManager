@@ -22,10 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let beaconController = BeaconController()
         let navigationController = UINavigationController(rootViewController: beaconController)
         window?.rootViewController = navigationController
-        
-      
-        
-        
+ 
         return true
     }
 

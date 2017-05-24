@@ -30,12 +30,11 @@ class CustomCell: UITableViewCell {
     var beacon: Beacon? = nil {
         didSet {
             if let beacon = beacon {
-                 //imgIcon.image = Icons(rawValue: item.icon)?.image()
+                 imgIcon.image = UIImage(named: "beaconMint")
                 beaconLabel.text = beacon.name
                 proximityLabel.text = beacon.locationString()
-                print("in did set ")
             } else {
-               // imgIcon.image = nil
+                imgIcon.image = nil
                 beaconLabel.text = "unknown"
                 proximityLabel.text = "-1"
             }
@@ -47,7 +46,23 @@ class CustomCell: UITableViewCell {
         print( beacon?.locationString() ?? "non")
     }
     
-     
+    
+    let imgIcon:UIImageView={
+    
+        let imageView = UIImageView()
+        imageView.image = UIImage(named:"beaconBlue")
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 34
+        imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = false
+        return imageView
+    
+    
+    
+    
+    }()
+    
+    
     
     let beaconLabel:UILabel = {
         let label = UILabel()
@@ -75,7 +90,6 @@ class CustomCell: UITableViewCell {
         
         return button
         
-        
     }()
     
     
@@ -86,13 +100,16 @@ class CustomCell: UITableViewCell {
         //cell label
         addSubview(beaconLabel)
         addSubview(proximityLabel)
+        addSubview(imgIcon)
      
+        addConstraintsWithFormat("H:|-8-[v0(44)]|",views: imgIcon)
+        addConstraintsWithFormat("V:|-16-[v0(44)]|",views: imgIcon)
         
-        addConstraintsWithFormat("H:|-16-[v0]|",views: beaconLabel)
-        addConstraintsWithFormat("V:|[v0]|",views: beaconLabel)
+        addConstraintsWithFormat("H:|-64-[v0]|",views: beaconLabel)
+        addConstraintsWithFormat("V:|-16-[v0]",views: beaconLabel)
         
-        addConstraintsWithFormat("H:|-150-[v0]|",views: proximityLabel)
-        addConstraintsWithFormat("V:|[v0]|",views: proximityLabel)
+        addConstraintsWithFormat("H:|-64-[v0]|",views: proximityLabel)
+        addConstraintsWithFormat("V:[v0]-16-|",views: proximityLabel)
         
         
 //cell button
