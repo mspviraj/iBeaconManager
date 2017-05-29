@@ -144,6 +144,7 @@ extension BeaconController {
     }
     
     func persistItems() {
+        
         var itemsData = [Data]()
         for beacon in beaconsArray {
             let beaconData = NSKeyedArchiver.archivedData(withRootObject: beacon)

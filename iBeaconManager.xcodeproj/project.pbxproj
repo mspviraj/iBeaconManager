@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		26575E831EDCAAAA00651465 /* NotificationSettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26575E821EDCAAAA00651465 /* NotificationSettingController.swift */; };
 		26BEAE781ED18EB100661FD9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BEAE771ED18EB100661FD9 /* AppDelegate.swift */; };
 		26BEAE7D1ED18EB100661FD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26BEAE7B1ED18EB100661FD9 /* Main.storyboard */; };
 		26BEAE7F1ED18EB100661FD9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26BEAE7E1ED18EB100661FD9 /* Assets.xcassets */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26575E821EDCAAAA00651465 /* NotificationSettingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationSettingController.swift; sourceTree = "<group>"; };
 		26BEAE741ED18EB100661FD9 /* iBeaconManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iBeaconManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26BEAE771ED18EB100661FD9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		26BEAE7C1ED18EB100661FD9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 				26BEAE7E1ED18EB100661FD9 /* Assets.xcassets */,
 				26BEAE801ED18EB100661FD9 /* LaunchScreen.storyboard */,
 				26BEAE831ED18EB100661FD9 /* Info.plist */,
+				26575E821EDCAAAA00651465 /* NotificationSettingController.swift */,
 			);
 			path = iBeaconManager;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				26BEAEA61ED1BABD00661FD9 /* BeaconsController.swift in Sources */,
 				26BEAEA81ED1BB6200661FD9 /* CustomCell.swift in Sources */,
 				26BEAE781ED18EB100661FD9 /* AppDelegate.swift in Sources */,
+				26575E831EDCAAAA00651465 /* NotificationSettingController.swift in Sources */,
 				26BEAEAA1ED1BBC000661FD9 /* CustomHeader.swift in Sources */,
 				26BEAEB11ED1D62E00661FD9 /* Beacon.swift in Sources */,
 			);
