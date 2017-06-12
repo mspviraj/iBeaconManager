@@ -114,10 +114,10 @@ class CustomCell: UITableViewCell {
         
 //cell button
         
-//        addSubview(actionButton)
-//        addConstraintsWithFormat("H:|-300-[v0]-8-|",views: actionButton)
-//        addConstraintsWithFormat("V:|[v0]|",views: actionButton)
-//        actionButton.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
+       addSubview(actionButton)
+        addConstraintsWithFormat("H:|-300-[v0]-8-|",views: actionButton)
+        addConstraintsWithFormat("V:|[v0]|",views: actionButton)
+        actionButton.addTarget(self, action: #selector(handleAction), for: .touchUpInside)
         
         
     }
